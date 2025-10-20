@@ -19,7 +19,40 @@
             // 2: 10 people
             // 3: 6 people
             // Commit your changes and add screnshot evidence of your program running to the Readme
+            {
+                Console.WriteLine("Enter how many people are coming");
+                int num = Convert.ToInt32(Console.ReadLine());
 
+                int totalCharge = CalculateTotalCharge(num);
+                Console.WriteLine("Total charge for the group is £" + totalCharge);
+            }
+
+            // Function to check if discount applies
+            static bool IsDiscountApplicable(int groupSize)
+            {
+                return groupSize >= 6;
+            }
+
+            // Function to calculate total charge
+            static int CalculateTotalCharge(int groupSize)
+            {
+                int ticketPrice = 15;
+                int discount = 5;
+
+                int total = groupSize * ticketPrice;
+
+                if (IsDiscountApplicable(groupSize))
+                {
+                    total -= discount;
+                }
+
+                return total;
+            }
         }
     }
 }
+
+
+
+
+
